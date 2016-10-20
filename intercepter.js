@@ -9,7 +9,7 @@ httpExample.config(['$httpProvider', function($httpProvider) {
             'request': function(config) {
                 config.headers['authorization'] = $rootScope.data;
                 return config;
-            };
+            }
         };
     });
 }]);
