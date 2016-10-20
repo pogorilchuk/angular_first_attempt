@@ -12,4 +12,4 @@ httpExample.config(['$httpProvider', function($httpProvider) {
             }
         };
     });
-}]);
+}])
