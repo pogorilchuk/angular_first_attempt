@@ -1,0 +1,39 @@
+<p><button id="fetchbtn2" class="btn btn-info" style="margin: 10px" ng-click="fetch2()">Отобразить категории выставок</button><br></p>
+<table border="1" class="table" style="width: 600px; margin: 10px">
+    <thead>
+    <tr>
+        <td width="">id</td>
+        <td>Логотип</td>
+        <td>Название тематики</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="record in allexhibit">
+        <td>{{record.id}}</td>
+        <td><img src="{{record.logo}}" width="100"></td>
+        <td>{{record.name}}</td>
+    </tr>
+    </tbody>
+</table>
+<h4>Добавить новую тематику</h4>
+<form method="get" name="myForm" class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+        <label class="control-label col-sm-2">Название тематики:</label> <input type="text" name="userName" ng-model="username" size="39" required="">
+        <i ng-show="myForm.userName.$error.required">*required</i><br>
+        </div>
+
+        <div class="form-group">
+        <label class="control-label col-sm-2">Логотип тематики:</label> <input type="file" style="margin-right: 0px;" ngf-select="" ng-model="picFile" name="file" ngf-accept="'image/*'" required="">
+        <i ng-show="myForm.file.$error.required">*required</i>
+        </div>
+
+        <button ng-disabled="!myForm.$valid" ng-click="add({name: username, logo: picFile})">Добавить</button>
+
+        <img ngf-src="picFile" class="thumb">
+        <span class="progress" ng-show="picFile.progress >= 0">
+                      <div style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'" class="ng-binding"></div>
+                  </span>
+        <span ng-show="picFile.result">Upload Successful</span>
+    </fieldset>
+</form>

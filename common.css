@@ -1,0 +1,11 @@
+.thumb
+{
+    height: 50px;
+    float: none;
+}
+
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
